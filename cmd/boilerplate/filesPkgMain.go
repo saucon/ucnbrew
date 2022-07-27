@@ -5,8 +5,8 @@ import (
 	"os"
 )
 
-func createMain(pkgname string) (err error) {
-	f, err := os.Create("main.go")
+func createMain(pkgname string, appname string) (err error) {
+	f, err := os.Create("cmd/" + appname + "/main.go")
 	if err != nil {
 		return err
 	}
@@ -24,6 +24,7 @@ package main
 import (
 	"` + pkgname + `/configs/env"
 	"` + pkgname + `/router"
+
 	"log"
 )
 
