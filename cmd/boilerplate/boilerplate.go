@@ -6,10 +6,10 @@ import (
 	"os/exec"
 )
 
-func Brewer(pkgname string) (err error) {
+func Brewer(pkgname string, appname string) (err error) {
 	fmt.Println("Welcome Cuk !", pkgname)
 
-	if err := createDirectories(); err != nil {
+	if err := createDirectories(appname); err != nil {
 		return err
 	}
 
@@ -18,7 +18,7 @@ func Brewer(pkgname string) (err error) {
 		return err
 	}
 
-	if err := createFiles(pkgname); err != nil {
+	if err := createFiles(pkgname, appname); err != nil {
 		return err
 	}
 
@@ -47,8 +47,8 @@ func Brewer(pkgname string) (err error) {
 	return nil
 }
 
-func createDirectories() (err error) {
-	if err := os.Mkdir("cmd", os.ModePerm); err != nil {
+func createDirectories(appname string) (err error) {
+	if err := os.MkdirAll("cmd/"+appname, os.ModePerm); err != nil {
 		return err
 	}
 	if err := os.Mkdir("internal", os.ModePerm); err != nil {
@@ -63,7 +63,7 @@ func createDirectories() (err error) {
 	if err := os.MkdirAll("configs/db", os.ModePerm); err != nil {
 		return err
 	}
-	if err := os.MkdirAll("configs/logs", os.ModePerm); err != nil {
+	if err := os.MkdirAll("configs/log", os.ModePerm); err != nil {
 		return err
 	}
 	if err := os.Mkdir("local", os.ModePerm); err != nil {

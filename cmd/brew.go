@@ -13,7 +13,7 @@ import (
 // brewCmd represents the brew command
 var brewCmd = &cobra.Command{
 	Use:   "brew",
-	Short: "A brief description of your command",
+	Short: "Create a boilerplate using gin, gorm, postgresql, logrus etc",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -23,8 +23,8 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("brewing a boilerplate for your lazy ass")
 
-		if len(args) == 1 {
-			if err := boilerplate.Brewer(args[0]); err != nil {
+		if len(args) == 2 {
+			if err := boilerplate.Brewer(args[0], args[1]); err != nil {
 				fmt.Println("Error: ", err)
 			}
 		} else {
