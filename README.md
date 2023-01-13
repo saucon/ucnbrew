@@ -14,9 +14,9 @@ go install github.com/saucon/ucnbrew@latest
 Don't forget to setup your path to go/bin.
 
 A tool to generate boilerplate.
-For example:
-packagename -> github.com/saucon
-appname -> helloapp
+For example: <br />
+packagename -> github.com/saucon <br />
+appname -> helloapp <br />
 
 ```sh
 ucnbrew brew [packagename]/[appname] [appname]
